@@ -1,0 +1,5 @@
+// Enter phpmyadmin
+http://www.thintfet.net/phpmyadmin
+
+// Change Password
+Select SHA1 in Function column in "Insert" 

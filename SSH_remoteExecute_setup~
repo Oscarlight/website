@@ -1,0 +1,60 @@
+
+//## Do this in the local computer, mean AWS EC2 in this case
+//## the server (the computer you want to ssh to hold public key), your local computer holds private key
+// https://help.ubuntu.com/community/SSH/OpenSSH/Configuring
+// sudo apt-get install openssh-server // EC2 ubuntu came with it
+sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.factory-defaults // make a copy of original config file
+//!(Not necessary) sudo chmod a-w /etc/ssh/sshd_config.factory-defaults // protect it
+
+// disable password authentication
+sudo gedit /etc/ssh/sshd_config
+	#PasswordAuthentication yes -> PasswordAuthentication no
+	UsePAM no
+sudo /etc/init.d/ssh reload
+// I didn't do this two in EC2, but I did this in my own computer (which is the server)
+sudo restart ssh
+sudo systemctl restart ssh
+
+// generate RSA keys
+mkdir ~/.ssh
+chmod 700 ~/.ssh
+chmod 600 authorized_keys
+ssh-keygen -t rsa
+	passphrase: so that we can learn to pick ourselves up
+	(!!! this time: no passphrase)
+// then pass the .pub key to the server, you can simply copy and paste it from termial by opening the key:
+cat id_rsa.pub
+
+// Important! go to the server, which it my computer, add the key to autorized key
+cat id_rsa.pub >> ~/.ssh/authorized_keys
+
+// Find IP in my own computer (the server)
+curl -s checkip.dyndns.org | sed -e 's/.*Current IP Address: //' -e 's/<.*$//' 
+
+// connect by: 
+ssh oscar@132.236.79.195
+
+
+//--------------- I accitantly delete the authorized_keys in EC2 -------------
+1. stop current instance
+2. create a new one
+3. detach current EBS volumn
+4. attach to the new instance
+5. (From AWS) mount EBS volumn in the new instance (http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-using-volumes.html)
+6. In my own computer:
+	1. ssh-keygen -y (this command generate public key)
+	2. scp the public key to instance
+7. cat the public key to authorized_keys
+8. umount the volume FIRST!!!
+9. detach the volume
+10. attach the volume as /dev/sda1 (which is root)
+11. restart the old instance
+
+// NOT WORKING...
+
+Effectively you've pulled the hard drive out, plugged it into a working system, made some changes and put it back.
+Then use the private key on my own computer to duplicate another public key then add to authorized key.
+
+
+
+

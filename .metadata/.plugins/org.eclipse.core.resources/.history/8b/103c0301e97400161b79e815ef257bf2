@@ -1,0 +1,53 @@
+
+
+<div>
+	<div>		
+	<!-- name, method, action are all for php, here we hijack the php to run jQuery -->
+	<!-- <form id = "sentenceInputForm" method = "POST" action = "inSQL.php"> -->
+	<!-- javaScript file to handle this submit without refleshing is in config/js.php--->
+	<?php include('template/uploader.php');?>
+	<div class="container">
+      <div class="panel panel-default">
+        <div class="panel-heading"><strong>Upload Files</strong> <small>only csv format</small></div>
+        <div class="panel-body">
+
+          <!-- Standar Form -->
+          <h4>Select files from your computer</h4>
+          <form action="" method="post" enctype="multipart/form-data" id="js-upload-form">
+            <div class="form-inline">
+              <div class="form-group">
+                <input type="file" name="files[]" id="js-upload-files" multiple>
+              </div>
+              <button type="submit" class="btn btn-sm btn-primary" id="js-upload-submit">Upload files</button>
+            </div>
+          </form>
+
+          <!-- Drop Zone -->
+          <h4>Or drag and drop files below</h4>
+          <div class="upload-drop-zone" id="drop-zone">
+            Just drag and drop files here
+          </div>
+	    </div>
+      </div>
+    </div> <!-- /container -->
+	
+	
+	</div> <!--End Input section-->
+	<div class="input-group"> &nbsp; </div> <!-- a empty line -->
+	<!-- massege -->
+	<div class = "input-group" id = "msg"></div>
+	<!-- loading -->
+	<div class = "input-group" id = "load"></div>
+	<!-- segmentation -->
+	<div id = "segment-result"></div>
+	<!-- parsing -->
+	<div class = "input-group" id = "parsing-wait"></div>
+	<!-- parsing-reslut -->
+	<div id = "parsing-result"></div>
+	<!-- search -->
+	<div class = "input-group" id = "processing"></div>
+	<div id = "search-result"></div>
+	<!-- Final result -->
+	<div class = "input-group" id = "result"></div>
+		
+</div>

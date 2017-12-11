@@ -1,0 +1,4 @@
+Need 2G Memory for sentence > 20 tokens
+and 1G Memory for sentence < 20 tokens
+
+AWS t2.micro's memory is 1 GB, too small...

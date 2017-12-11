@@ -1,0 +1,63 @@
+<?php 
+	include('config/setup.php'); 
+?>
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- Chinese character model -->
+		<meta charset="utf-8"> 
+		
+		<title> <?php echo $page['title'].' | '.$site_title ?> </title>
+		
+		<!-- from Bootstrap -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<!-- include the css file -->
+		<?php include('config/css.php'); ?>
+		
+		<!-- include the javascript file -->
+		<?php include('config/js.php'); ?>
+
+
+	</head>
+
+	<body>
+
+		<nav class = "navbar navbar-default" role = "navigation" >
+
+			<div class = "container">
+				<ul class = "nav navbar-nav">
+					<li<?php if($pageid == 1) { echo ' class="active"';} ?>>
+						<a href="?page=1"> 主页 </a>
+					</li>
+					<li<?php if($pageid == 2) { echo ' class="active"';} ?>>
+						<a href="#"> 被子句分析 </a>
+					</li>
+					<li<?php if($pageid == 5) { echo ' class="active"';} ?>>
+						<a href="?page=5"> 关于我 </a>
+					</li>
+					<li class="active">
+						<a href="valentineSpecial/val.php"> Surprise me </a>
+					</li>
+				</ul>
+			</div>
+		</nav><!-- END Main navigation -->
+
+		<div class = "container">
+			<h1> <?php echo $page['header']; ?> </h1>
+			
+			<p> <?php echo $page['body']; ?> </p>
+			
+		</div>
+		
+		<footer class="footer">
+			<div class="container">
+				<p class="text-muted">
+					copyright @ Jiayan 2016-2017
+				</p>
+			</div>
+		</footer>
+
+</html>

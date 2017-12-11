@@ -1,0 +1,3 @@
+# $DIR = "/home/oscar/Documents/AptanaStudio3Workspace/segmenterREMOTERUN/"
+scp -r $1 oscar@132.236.79.195:/home/oscar/Documents/AptanaStudio3Workspace/segmenterREMOTERUN/
+

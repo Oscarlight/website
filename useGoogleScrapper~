@@ -1,0 +1,50 @@
+1. Install pyhont3.5
+http://askubuntu.com/questions/680824/how-do-i-update-python-from-3-4-3-to-3-5
+
+wget https://www.python.org/ftp/python/3.5.1/Python-3.5.1.tar.xz
+tar xfvJ Python-3.5.1.tar.xz
+cd Python-3.5.1
+./configure --prefix=/opt/python3.5
+make
+sudo make install
+sudo ln -s /opt/python3.5/bin/python3.5 /usr/local/bin/py3.5
+
+py3.5 in command line
+
+
+2. Install ChromeDriver
+https://christopher.su/2015/selenium-chromedriver-ubuntu/#selenium-version
+
+sudo apt-get install unzip
+
+wget -N http://chromedriver.storage.googleapis.com/2.20/chromedriver_linux64.zip
+unzip chromedriver_linux64.zip
+chmod +x chromedriver
+
+sudo mv -f chromedriver /usr/local/share/chromedriver
+sudo ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver
+sudo ln -s /usr/local/share/chromedriver /usr/bin/chromedriver
+
+3. Install GoogleScrapper
+
+sudo pip3 install virtualenv
+ 
+virtualenv --python python3 env (get a error...)
+
+(drive me crazy!!)
+
+(somewhere, I mess up python3 with python3.5 instead of python3.4)!!
+
+pip3 install GoogleScraper
+
+Also, I can:
+
+run it at the same directory with GoogleScrapper.
+python3.4 filename
+
+
+4. 
+Xvfb :99 -ac & 
+export DISPLAY=:99 
+firefox &
+

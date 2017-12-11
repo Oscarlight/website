@@ -1,0 +1,73 @@
+// make key only readable and writable for you
+sudo chmod 400 beiSentence.pem
+ssh -i ../beiSentence.pem ubuntu@ec2-52-87-238-25.compute-1.amazonaws.com // usrname@publicDNS_or_publicIP
+
+// set up LAMP
+sudo apt-get update
+sudo apt-get install php5 apache2 libapache2-mod-php5 mysql-server php5-mysql
+sudo service apache2 restart
+mysql_secure_installation // let you to reset password
+mysql -u root -p // run mysql
+
+! MySQL password: 890925
+! password related to phpaddmin with MySql: 890925
+
+sudo apt-get install phpmyadmin // install UI for php communication with mysql
+// create a symbolic link to phpmyadmin conf file.
+sudo ln -s /etc/phpmyadmin/apache.conf /etc/apache2/conf-enabled/phpmyadmin.conf
+sudo service apache2 restart
+
+// connection with AWS EC2 example
+ scp -i ../beiSentence.pem -r $1 ubuntu@ec2-52-87-238-25.compute-1.amazonaws.com:beiSentenceTransport/
+ ssh -i ../beiSentence.pem ubuntu@ec2-52-87-238-25.compute-1.amazonaws.com sudo cp -avr /home/ubuntu/beiSentenceTransport/$1 /var/www/html
+
+// install Java (In my current version, no need for Java)
+Step 1: Install Java 8 (JDK 8)
+Open terminal and enter the following commands.
+sudo add-apt-repository -y ppa:webupd8team/java
+sudo apt-get update
+echo debconf shared/accepted-oracle-license-v1-1 select true | sudo debconf-set-selections
+echo debconf shared/accepted-oracle-license-v1-1 seen true | sudo debconf-set-selections
+sudo apt-get -y install oracle-java8-installer
+
+// Setup JAVA Environment
+sudo apt-get -y install oracle-java8-set-default
+
+Step 2: Verify JAVA Version
+// After successfully installing oracle java using above step verify installed version using following command.
+$ java -version
+You see output similar to this.
+java version “1.8.0_25”
+Java(TM) SE Runtime Environment (build 1.8.0_25-b17)
+Java HotSpot(TM) 64-Bit Server VM (build 25.25-b02, mixed mode)
+
+// install beautifulsoup in Python
+sudo apt-get install python-bs4
+
+//### (If transfer) ####
+// mysql export/import
+export beiSentence.sql from old server
+create a new user: developer (for example)
+create a data base beiSentence, enter this then import from beiSentence.sql
+
+1. send all the data to server
+2. delete index.html
+3. set parser write permission
+
+// Install PHP's SSH2 extension
+sudo aptitude install libssh2-1-dev libssh2-php
+php -m |grep ssh2
+sudo service apache2 restart
+
+// install php-seclib
+sudo apt-get install php-seclib
+sudo service apache2 restart
+
+// install xvfb (as a fake monitor for selenium mode to work)
+sudo apt-get install xvfb
+sudo apt-get install xfonts-100dpi xfonts-75dpi xfonts-scalable xfonts-cyrillic
+Xvfb :99 -ac & 
+export DISPLAY=:99
+// (still not working) 
+
+

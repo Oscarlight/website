@@ -1,0 +1,3 @@
+chmod +x g.py
+
+give g.py the permisson to be executable.

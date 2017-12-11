@@ -1,0 +1,28 @@
+// In EC2
+ssh-keygen -t rsa
+// no passpharse, enter, enter, enter, ...
+cd /home/ubuntu/.ssh
+cat id_rsa.pub
+// copy from termial paste into a file on my own computer
+// in Aptana Studio 3 Workspace: tempEC2pubKey
+// do to my own computer
+cat tempEC2pubKey >> ~/.ssh/authorized_keys
+// connect by
+ssh oscar@132.236.79.195
+// make sure:
+chmod 700 ~/.ssh
+chmod 600 authorized_keys
+
+// more detail see SSH_remoteExecute_setup
+
+// use ssh2 (WARMING: may has some SECURITY RISK, because www-data is a group user,
+// I have to give a group user the access to ssh keys)
+install it see AWSEC2_setup
+// error: public key cannot be opend
+solution: move the keys to a folder can be accessed by www-data user
+// in home
+mkdir sshKey
+cp .ssh/id_rsa.pub sshKey/
+cp .ssh/id_rsa sshKey/
+// error: callback returned error ->
+chmod 644 sshKey/id_rsa

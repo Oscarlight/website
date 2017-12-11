@@ -1,0 +1,3 @@
+# $DIR = "/home/oscar/Documents/AptanaStudio3Workspace/segmenterREMOTERUN/"
+scp -r $1 ssh oscar@132.236.79.195:/home/oscar/Documents/AptanaStudio3Workspace/segmenterREMOTERUN/
+ssh oscar@132.236.79.195 bash /home/oscar/Documents/AptanaStudio3Workspace/segmenterREMOTERUN/segment.sh ctb /home/oscar/Documents/AptanaStudio3Workspace/segmenterREMOTERUN/temp.txt UTF-8 0

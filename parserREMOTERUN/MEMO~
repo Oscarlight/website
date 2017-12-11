@@ -1,0 +1,6 @@
+Since segmenter cannot be ran. We have to use parser to segment Chinese words. 
+
+NNDEP has not been figured out yet.
+
+To write file:
+Give and ONLY need to give temp.txt (target file) group write permisson chmod 0666 temp.txt

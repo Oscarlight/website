@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Delete resource &apos;beiSentence/id_rsa.pub&apos;" deleteContents="false" description="Delete resource &apos;beiSentence/id_rsa.pub&apos;" element1="/beiSentence/id_rsa.pub" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1456698672132"/>&#x0A;<refactoring comment="Delete resource &apos;beiSentence/proSentence/segment&apos;" deleteContents="false" description="Delete resource &apos;beiSentence/proSentence/segment&apos;" element1="/beiSentence/proSentence/segment" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1456732598471"/>
+</session>

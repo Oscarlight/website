@@ -1,0 +1,1 @@
+"java -jar /home/oscar/Documents/AptanaStudio3Workspace/ffxREMOTERUN/evo.jar /home/oscar/Documents/AptanaStudio3Workspace/ffxREMOTERUN/2_RTD.csv 100
